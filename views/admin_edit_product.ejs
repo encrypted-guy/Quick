@@ -1,0 +1,37 @@
+<%- include('partials/adminheader.ejs') %>
+
+<div class="admin-all">
+                
+    <section class="contact" >
+        <div class="form-main">
+            <form class="contact" action="" method="POST">      
+                <div>
+                    <p>IDIOT YOU CAN'T CHANGE THE IMAGE </span></p>
+                </div>
+                <br>
+                <hr>
+
+                <div>
+                    <p>Edit Product title <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input value="<%= product.title %>" name="title" class="input-feilds" type="text" >
+                </div>
+
+                <div>
+                    <p>Edit Product price <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input value="<%= product.price %>" name="price" class="input-feilds" type="text" >
+                </div>
+                
+                <div>
+                    <p>Edit Product discription <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <textarea name="description" class="input-feilds" id="editor" cols="300" rows="10"> <%= product.description %> </textarea>
+                </div>
+    
+                <button type="submit" class="input-feilds send-msg"> UPDATE PRODUCT </button>
+            </form>
+        </div>
+    </section>
+
+    
+</div>
+
+<%- include('partials/adminfooter.ejs') %>

@@ -1,0 +1,55 @@
+<%- include('partials/header.ejs') %>
+ 
+
+    <!-- products view -->
+    <section class="product-view">
+        <h2 class="on-res-title"><%= each_Product.title %></h2> <!--title-->
+        <div class="image">
+            <img src="<%= each_Product.imgurl %>">
+        </div>
+        <div class="pricing">
+            <h2 class="title-product-view"><%= each_Product.title %></h2> <!--title-->
+            <h3>$ <span class="price-number"><%= parseFloat(each_Product.price).toFixed(2) %></span></h3>
+            <small> Description </small>
+            <p class="Description">
+                <%= each_Product.description %>            
+            </p>
+            <a href="/add/cart/<%= each_Product._id %>">
+                <button value="<%= each_Product._id %>" class="add-cart-btn add-cart">Add to Cart</button>
+            </a>
+        </div>
+    </section>
+
+    <!--heading mains-->
+    <section class="show-heading">
+        <h3> <span>related products</span></h3>
+    </section>
+
+    <div class="to-fix-padding-20"></div>
+
+    <section class="For-all-products">
+        <div class="product-all">
+            <div class="product-list">
+
+            <% for(let i =0; i < 4; i++) { %>
+                <div data-aos="zoom-in" class="product-each product">
+                    <a href="/product/<%= random_products[i]._id %>">
+                        <h4 class="product-title"><%= random_products[i].title %></h4>
+                        <img width="250" height="300" src="<%=random_products[i].imgurl%>">
+                    </a>
+                    <div class="product-btns">
+                        <p>$<span class="product-price"><%= parseFloat(random_products[i].price).toFixed(2) %></span></p>
+                        <a href="/add/cart/<%= random_products[i]._id %>">
+                            <button value="<%= random_products[i]._id %>" class="add-cart small-cart-btn">Add <i class="fas fa-shopping-bag"></i> </button>
+                        </a>
+                    </div>
+                </div>
+            <% }; %>
+
+            </div>
+        </div>
+    </section>
+
+
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,24 @@
+<%- include('partials/adminheader.ejs') %>
+
+    <div class="admin-all">
+                    
+        <div class="main-all-email">
+            <div class="email-list">
+
+                <% emails.forEach(email => { %>
+                    <div class="email-main">
+                        <ul>
+                            <li>name: <%= email.name %></li>
+                            <li>email: <%= email.email %></li>
+                            <li>
+                                message: <%= email.message %>
+                            </li>
+                        </ul>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        
+    </div>
+
+<%- include('partials/adminfooter.ejs') %>

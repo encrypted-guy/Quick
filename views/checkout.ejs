@@ -1,0 +1,103 @@
+<%- include('partials/header.ejs') %>
+
+    
+<section class="chackout-landing">
+    <h1><span class="black-highlight"> Checkout </span></h1>
+</section>
+<% if(typeof cart == 'undefined') { %>
+    <div  class="empty-cart">
+        <h1>YOUR CART IS EMPTY</h1>
+        <a href="/products">
+            <button class="emptyButton">Back TO shop</button>
+        </a>
+    </div>
+<% } else { %>
+    <section class="chackout-container">
+        <table>
+            <tr>
+            <th>Products in cart</th>
+            <th></th>
+            </tr>
+            <% let totalamount = 0; %>
+            <% checkoutitems.forEach(products => { %>
+                <% let total = parseFloat(products.qty * products.price).toFixed(2) %>
+                <% totalamount += +total %>
+                <tr>
+                    <td><img src="<%= products.imgurl %>"></td>
+                    <td><%= products.title %></td>
+                </tr>
+            <% }); %>
+            
+            <tr>
+                <th>TOTAL PRICE</th>
+                <th>$ <%=  parseFloat(totalamount).toFixed(2) %></th>
+            </tr>
+            <!------------------------------------------------------>
+        </table>
+        <a href="/cart">
+            <button class="chackout-btn"> <- edit cart </button>
+        </a>
+    </section>
+
+    <section class="show-heading">
+        <h3> <span> <i class="fas fa-arrow-down"></i> </span></h3>
+    </section>
+
+    <section class="checkout-form" >
+        <div class="form-main">
+            <form class="contact" action="/make-oder" method="POST">      
+                <div>
+                    <p>Full name <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="name" class="input-feilds" type="text" required>
+                </div>
+
+                <div>
+                    <p>Address / Apartment <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="address" class="input-feilds" type="text" required>
+                </div>
+
+                <div>
+                    <p> Zip code <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="Zip" class="input-feilds" type="text" required>
+                </div>
+
+                <div>
+                    <p>E-mail <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="email" class="input-feilds" type="email" required>
+                </div>
+            
+                <input name="totalPrice" value="<%=  parseFloat(totalamount).toFixed(2) %>" class="input-feilds" type="hidden">
+        
+                
+                <div>
+                    <p>Phone <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="phone" class="input-feilds" type="text" required>
+                </div>
+                
+                <div class="cradit-card">
+                    <p>Cradit card infomation <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <small>Name </small>
+                    <input class="input-feilds" type="text" required>
+                    
+                    <small>Card Number </small>
+                    <input class="input-feilds" type="text" required>
+                    <div class="exp-numbers">
+                        <div class="exp-box-1">
+                            <small> Expiration (mm/yy) </small>
+                            <input class="input-feilds" type="text" required>
+                        </div>
+                        <div class="exp-box-2">
+                            <small>Security Code</small>
+                            <input class="input-feilds Security" type="text" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="make-oder input-feilds send-msg"> Make oder </button>
+            </form>
+        </div>
+    </section>
+<% } %>
+
+
+<%- include('partials/footer.ejs') %>

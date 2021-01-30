@@ -1,0 +1,30 @@
+<%- include('partials/adminheader.ejs') %>
+
+    <div class="admin-all">
+                    
+        <div class="main-products-list">
+            <div class="products-list">
+
+                <% products.forEach(product => { %>
+                    <div class="product-main">
+                        <div class="image">
+                            <img src="<%= product.imgurl %>" alt="">
+                        </div>
+                        <p><%= product.title %></p>
+                        <p>price: $ <%= product.price %></p>
+                        <div class="product-btns">
+                            <a href="/admin/edit-product/<%= product._id %>">
+                                <button class="btn">EDIT</button>
+                            </a>
+                            <a href="/admin/delete-product/<%= product._id %>">
+                                <button class="btn">DELETE</button>
+                            </a>
+                        </div>
+                    </div>
+                <% }); %>
+
+            </div>
+        </div>
+    </div>
+
+<%- include('partials/adminfooter.ejs') %>

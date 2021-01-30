@@ -1,0 +1,35 @@
+<%- include('partials/adminheader.ejs') %>
+
+<div class="admin-all">
+                
+    <section class="contact" >
+        <div class="form-main">
+            <form class="contact" action="/added" method="POST" enctype="multipart/form-data" >      
+                <div>
+                    <p>select image <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input class="input-feilds" name="file" type="file" accept="image/*" >
+                </div>
+
+                <div>
+                    <p>Product title <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="title" class="input-feilds" type="text" >
+                </div>
+
+                <div>
+                    <p>Product price <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="price" class="input-feilds" type="text" >
+                </div>
+                
+                <div>
+                    <p>Product discription <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <textarea name="description" class="input-feilds" name="discription" id="editor" cols="300" rows="10"></textarea>
+                </div>
+                <button type="submit" class="input-feilds send-msg"> ADD PRODUCT </button>
+            </form>
+        </div>
+    </section>
+
+    
+</div>
+
+<%- include('partials/adminfooter.ejs') %>

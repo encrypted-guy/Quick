@@ -1,0 +1,42 @@
+<%- include('partials/adminheader.ejs') %>
+
+<div class="admin-all">
+                
+    <div class="main-all-oder">
+        <div class="oder-list">
+            <% let index = 0 %>
+            <% odered.forEach(oder => { %>
+                <% index++ %>
+                <div class="email-main">
+                    <ul>
+                        <li> <h3>oder number: <span><%= index %></span></h3> </li>
+                        <li>Name: <%= oder.name %></li>
+                        <li>Address: <%= oder.address %></li>
+                        <li>Zip cide: <%= oder.Zip %></li>
+                        <li>Email Address: <%= oder.email %></li>
+                        <li>Phone Number: <%= oder.phone %></li>
+                        <li>TOTAL PRICE: <%= oder.totalPrice %></li>
+                        <li>PAID: *YES</li>
+                        <li>
+                            products: 
+                            <% oder.odered_items.forEach(products => { %>
+                                <ul>
+                                    <li class="img-product">
+                                        <p style="display: none;" class="hidden"><%= products.odered_id %></p>
+                                        <img width="50px" src="<%= products.odered_img %>" alt="">
+                                        <p> <%= products.odered_title %> </p>
+                                    </li>
+                                </ul>
+                            <% }); %>
+                        </li>
+                    </ul>
+                </div>
+            <% }); %>
+            
+        
+            
+        </div>
+    </div>
+    
+
+<%- include('partials/adminfooter.ejs') %>

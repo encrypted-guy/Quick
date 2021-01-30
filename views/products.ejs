@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+ 
+ 
+<section class="all-product-landing">
+    <h1><span class="black-highlight"> Product collection </span></h1>
+    <p><span class="black-highlight"> enjoy all og our unique products </span></p>
+</section>
+
+
+<div class="to-fix-padding-20"></div>
+
+<section class="For-all-products">
+    <div class="product-all">
+        <div class="product-list">
+
+        <!--form hree-->
+        <% product.forEach(product => { %>
+            <div data-aos="zoom-in" class="product-each product">
+                <a href="/product/<%= product._id %>">
+                    <h4 class="product-title"><%= product.title %></h4>
+                    <img width="250" height="300" src="<%= product.imgurl %>">
+                </a>
+                <div class="product-btns">
+                    <p>$<span class="product-price"><%= parseFloat(product.price).toFixed(2) %></span></p>
+                    <a href="/add/cart/<%= product._id %>">
+                        <button value="<%= product._id %>" class="add-cart small-cart-btn">Add <i class="fas fa-shopping-bag"></i> </button>
+                    </a>
+                </div>
+            </div>
+        <% }); %>
+        <!---to here-->
+
+            <!-------------->
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>

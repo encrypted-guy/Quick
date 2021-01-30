@@ -1,0 +1,104 @@
+<%- include('partials/header.ejs') %>
+ 
+    <section class="landing">
+        <h1><span class="black-highlight"> Oder perfect drink with the touch of a button. </span></h1>
+        <p><span class="black-highlight"> finally can enjoy every morning </span></p>
+        <a href="/products" class="button">Shop Now</a>
+    </section>
+
+    <!--heading mains-->
+    <section class="show-heading">
+        <h3> <span>trending right now</span></h3>
+    </section>
+
+    <!-- products view -->
+    <section class="product-view">
+        <h2 class="on-res-title"> <%= trending.title %> </h2> <!--title-->
+        <div class="image">
+            <img src="<%= trending.imgurl %>">
+        </div>
+        <div class="pricing">
+            <h2 class="title-product-view"><%= trending.title %></h2> <!--title-->
+            <h3>$ <span class="price-number"><%= parseFloat(trending.price).toFixed(2) %></span></h3>
+            <small> Description </small>
+            <p class="Description">
+                <%= trending.description %>
+            </p>
+            <a href="/add/cart/<%= trending._id %>">
+                <button value="<%= trending._id %>" class="add-cart-btn add-cart">Add to Cart</button>
+            </a>
+        </div>
+    </section>
+
+    <!--heading mains-->
+    <section class="show-heading">
+        <h3> <span>Featured products</span></h3>
+    </section>
+
+    <div class="to-fix-padding-20"></div>
+
+    <section class="For-all-products">
+        <div class="product-all">
+            <div class="product-list">
+                
+                <% for(let i =0; i < 4; i++) { %>
+                    <div data-aos="zoom-in" class="product-each product">
+                        <a href="/product/<%= products[i]._id %>">
+                            <h4 class="product-title"> <%= products[i].title %> </h4>
+                            <img width="250" height="300" src="<%= products[i].imgurl %>">
+                        </a>
+                        <div class="product-btns">
+                            <p>$<span class="product-price"><%= parseFloat(products[i].price).toFixed(2) %></span></p>
+                            <a href="/add/cart/<%= products[i]._id %>">
+                                <button value="<%= products[i]._id %>" class="add-cart small-cart-btn">Add <i class="fas fa-shopping-bag"></i> </button>
+                            </a>
+                        </div>
+                    </div>
+                <% } %>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="About">
+        <h2 class="about-res-title">About Quick</h2> <!--title-->
+        <div class="about-image">
+            <img src="/public/ap3.png">
+        </div>
+        <div class="about-dis">
+            <h2 class="title-About">About Quick</h2> <!--title-->
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro alias, sit odit eaque exercitationem, laborum ut dignissimos quo sunt eius, quidem illo vitae fugiat iste quos consectetur ad delectus voluptatem.
+            </p>
+        </div>
+    </section>
+
+    <section class="show-heading">
+        <h3> <span>Get in Touch</span></h3>
+    </section>
+
+    <section id="contact" class="contact" >
+        <div class="form-main">
+            <form class="contact" action="/message" method="POST">      
+                <div>
+                    <p>Full name <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="name" class="input-feilds" type="text" >
+                </div>
+
+                <div>
+                    <p>E-mail <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <input name="email" class="input-feilds" type="email" >
+                </div>
+                
+                <div>
+                    <p>Your message <span class="icon-form"> <i class="fas fa-level-down-alt"></i> </span></p>
+                    <textarea name="message" class="input-feilds"  id="editor" cols="300" rows="10"></textarea>
+                </div>
+
+                <button type="submit" class="input-feilds send-msg"> Send a message </button>
+            </form>
+        </div>
+    </section>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=DM+Mono|Fjalla+One|Modak&display=swap" rel="stylesheet">   
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/style.css" type="text/css">
+    <title>Quick</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">
+                <h3 class="logo">quick</h3>
+            </a>
+            <ul>
+                <li><a href="/"><span class="link-colors"> Home </span></a></li>
+                <li><a href="/products"><span class="link-colors"> Products </span></a></li>
+                <li><a href="/#about"><span class="link-colors"> About </span></a></li>
+                <li><a href="/#contact"><span class="link-colors"> Contact </span></a></li>
+                <l><a href="/cart"><span class="link-colors res-cart"><i class="fas fa-shopping-bag">
+                    <small class="cart-number">
+                    <% if(typeof cart !== 'undefined') { %>
+                        <%= cart.length %>
+                    <% } else { %>
+                    
+                    <% } %>
+                    </small>
+                </i></span></a></li>
+            </ul>
+            <div class="menu">
+                <a class="res-cart" href="/cart"> <i class="fas fa-shopping-bag">
+                    <small class="cart-number">
+                        <% if(typeof cart !== 'undefined') { %>
+                            <%= cart.length %>
+                        <% } else { %>
+                        
+                        <% } %>    
+                    </small>
+                </i> </a>
+                <h3 onclick="openNav()" class="menu-btn">&#9776;</h3>
+            </div>
+        </nav>
+        <!--menu part-->
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="/"><span class="link-colors"> Home </span></a>
+                <a href="/products"><span class="link-colors"> Products </span></a>
+                <a href="/#about"><span class="link-colors"> About </span></a>
+                <a href="/#contact"><span class="link-colors"> Contact </span></a>
+            </div>
+        </div> 
+    </header>
+    
